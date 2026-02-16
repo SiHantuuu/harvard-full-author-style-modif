@@ -96,7 +96,7 @@
     </layout>
   </citation>
 
-  <bibliography hanging-indent="true" et-al-min="6" et-al-use-first="1">
+  <bibliography hanging-indent="true">
     <sort>
       <key macro="author"/>
       <key macro="year-date"/>
