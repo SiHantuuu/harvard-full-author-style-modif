@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="en-US">
   <info>
-    <title>Custom Harvard - Fixed pp Konsisten</title>
+    <title>Harvard Custom - Rahmadani Style (Et Al Fixed)</title>
     <id>https://raw.githubusercontent.com/SiHantuuu/harvard-full-author-style-modif/refs/heads/main/modif-elsevier-harvard.csl</id>
     <link href="https://raw.githubusercontent.com/SiHantuuu/harvard-full-author-style-modif/refs/heads/main/modif-elsevier-harvard.csl" rel="self"/>
     <author>
       <name>Gemini AI</name>
     </author>
     <category citation-format="author-date"/>
-    <updated>2026-02-16T17:15:00+00:00</updated>
+    <updated>2026-02-16T17:30:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -25,9 +25,11 @@
 
   <macro name="author-short">
     <names variable="author">
-      <name form="short" and="text" delimiter=", " initialize-with=". "/>
+      <name form="short" and="text" delimiter=", " initialize-with=". " delimiter-precedes-last="never"/>
+      <et-al font-style="italic"/>
       <substitute>
         <names variable="editor"/>
+        <names variable="translator"/>
         <text variable="title" form="short"/>
       </substitute>
     </names>
@@ -63,14 +65,6 @@
           </group>
         </group>
       </if>
-      <else-if type="chapter paper-conference" match="any">
-        <group delimiter=", ">
-          <text variable="volume"/>
-          <group prefix="pp. ">
-            <text variable="page"/>
-          </group>
-        </group>
-      </else-if>
     </choose>
   </macro>
 
@@ -88,17 +82,25 @@
   </macro>
 
   <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
+    <sort>
+      <key macro="author"/>
+      <key variable="issued"/>
+    </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
       <group delimiter=", ">
         <text macro="author-short"/>
         <date variable="issued">
           <date-part name="year"/>
         </date>
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
       </group>
     </layout>
   </citation>
 
-  <bibliography hanging-indent="true">
+  <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="7">
     <sort>
       <key macro="author"/>
       <key variable="issued" sort="descending"/>
