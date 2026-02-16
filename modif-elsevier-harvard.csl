@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="en-US">
   <info>
-    <title>Custom Harvard - Rahmadani Style</title>
+    <title>Custom Harvard - Fixed pp Konsisten</title>
     <id>https://raw.githubusercontent.com/SiHantuuu/harvard-full-author-style-modif/refs/heads/main/modif-elsevier-harvard.csl</id>
     <link href="https://raw.githubusercontent.com/SiHantuuu/harvard-full-author-style-modif/refs/heads/main/modif-elsevier-harvard.csl" rel="self"/>
     <author>
       <name>Gemini AI</name>
     </author>
     <category citation-format="author-date"/>
-    <updated>2026-02-16T17:00:00+00:00</updated>
+    <updated>2026-02-16T17:15:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -58,9 +58,19 @@
             <text variable="volume"/>
             <text variable="issue" prefix="(" suffix=")"/>
           </group>
-          <text variable="page" prefix="pp. "/>
+          <group prefix="pp. ">
+            <text variable="page"/>
+          </group>
         </group>
       </if>
+      <else-if type="chapter paper-conference" match="any">
+        <group delimiter=", ">
+          <text variable="volume"/>
+          <group prefix="pp. ">
+            <text variable="page"/>
+          </group>
+        </group>
+      </else-if>
     </choose>
   </macro>
 
@@ -91,7 +101,7 @@
   <bibliography hanging-indent="true">
     <sort>
       <key macro="author"/>
-      <key variable="issued"/>
+      <key variable="issued" sort="descending"/>
     </sort>
     <layout suffix=".">
       <group delimiter=" ">
