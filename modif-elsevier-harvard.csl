@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl"
-       class="in-text"
        version="1.0"
+       class="in-text"
        demote-non-dropping-particle="never"
        default-locale="en-US">
+
   <info>
     <title>Elsevier Harvard (et al in-text only)</title>
     <id>http://www.zotero.org/styles/elsevier-harvard-no-etal-biblio</id>
+    <link href="http://www.zotero.org/styles/elsevier-harvard-no-etal-biblio" rel="self"/>
+    <link href="http://www.elsevier.com" rel="documentation"/>
+    <author>
+      <name>Your Name</name>
+    </author>
     <category citation-format="author-date"/>
     <updated>2026-02-16T00:00:00+00:00</updated>
   </info>
@@ -24,6 +30,7 @@
       </substitute>
     </names>
   </macro>
+
   <macro name="author-short">
     <names variable="author"
            et-al-min="3"
@@ -37,6 +44,7 @@
       </substitute>
     </names>
   </macro>
+
   <macro name="issued">
     <choose>
       <if variable="issued">
@@ -49,20 +57,24 @@
       </else>
     </choose>
   </macro>
+
   <macro name="title">
     <text variable="title"/>
   </macro>
+
   <macro name="container">
     <group prefix=". " delimiter=", ">
       <text variable="container-title"/>
     </group>
   </macro>
+
   <macro name="locators">
     <group prefix=", " delimiter=", ">
       <text variable="volume"/>
       <text variable="page"/>
     </group>
   </macro>
+
   <citation et-al-min="3"
             et-al-use-first="1"
             disambiguate-add-givenname="true"
@@ -71,7 +83,7 @@
             cite-group-delimiter="; ">
     <sort>
       <key macro="author"/>
-      <key macro="issued" sort="descending"/>
+      <key macro="issued"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
       <group delimiter=", ">
@@ -80,6 +92,7 @@
       </group>
     </layout>
   </citation>
+
   <bibliography hanging-indent="true"
                 entry-spacing="0"
                 line-spacing="1"
@@ -87,7 +100,7 @@
                 et-al-use-first="100">
     <sort>
       <key macro="author"/>
-      <key macro="issued" sort="descending"/>
+      <key macro="issued"/>
     </sort>
     <layout>
       <group suffix=".">
@@ -101,4 +114,5 @@
       </group>
     </layout>
   </bibliography>
+
 </style>
